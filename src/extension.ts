@@ -116,7 +116,9 @@ async function startLspClient(context: vscode.ExtensionContext): Promise<void> {
         clientOptions
     );
 
-    context.subscriptions.push(client.start());
+    // Start the client and add it to subscriptions for cleanup
+    client.start();
+    context.subscriptions.push(client);
 }
 
 /**
