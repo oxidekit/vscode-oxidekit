@@ -1,0 +1,114 @@
+{
+  "$schema": "https://raw.githubusercontent.com/martinring/tmlanguage/master/tmlanguage.json",
+  "name": "OxideKit UI",
+  "scopeName": "source.oui",
+  "patterns": [
+    { "include": "#comments" },
+    { "include": "#app" },
+    { "include": "#components" },
+    { "include": "#strings" },
+    { "include": "#numbers" },
+    { "include": "#keywords" },
+    { "include": "#properties" }
+  ],
+  "repository": {
+    "comments": {
+      "patterns": [
+        {
+          "name": "comment.line.double-slash.oui",
+          "match": "//.*$"
+        },
+        {
+          "name": "comment.block.oui",
+          "begin": "/\\*",
+          "end": "\\*/"
+        }
+      ]
+    },
+    "app": {
+      "patterns": [
+        {
+          "match": "\\b(app)\\s+([A-Z][a-zA-Z0-9_]*)\\s*\\{",
+          "captures": {
+            "1": { "name": "keyword.control.app.oui" },
+            "2": { "name": "entity.name.type.app.oui" }
+          }
+        }
+      ]
+    },
+    "components": {
+      "patterns": [
+        {
+          "match": "\\b([A-Z][a-zA-Z0-9_]*)\\s*\\{",
+          "captures": {
+            "1": { "name": "entity.name.type.component.oui" }
+          }
+        }
+      ]
+    },
+    "strings": {
+      "patterns": [
+        {
+          "name": "string.quoted.double.oui",
+          "begin": "\"",
+          "end": "\"",
+          "patterns": [
+            {
+              "name": "constant.character.escape.oui",
+              "match": "\\\\."
+            }
+          ]
+        },
+        {
+          "name": "string.quoted.single.oui",
+          "begin": "'",
+          "end": "'",
+          "patterns": [
+            {
+              "name": "constant.character.escape.oui",
+              "match": "\\\\."
+            }
+          ]
+        }
+      ]
+    },
+    "numbers": {
+      "patterns": [
+        {
+          "name": "constant.numeric.oui",
+          "match": "\\b-?[0-9]+(\\.[0-9]+)?\\b"
+        }
+      ]
+    },
+    "keywords": {
+      "patterns": [
+        {
+          "name": "keyword.control.oui",
+          "match": "\\b(app|style|if|else|for|in|match)\\b"
+        },
+        {
+          "name": "constant.language.oui",
+          "match": "\\b(true|false|fill|wrap|start|center|end|space-between|space-around)\\b"
+        },
+        {
+          "name": "support.function.oui",
+          "match": "\\b(t)\\s*\\("
+        }
+      ]
+    },
+    "properties": {
+      "patterns": [
+        {
+          "match": "([a-z][a-zA-Z0-9_]*)\\s*:",
+          "captures": {
+            "1": { "name": "variable.other.property.oui" }
+          }
+        },
+        {
+          "name": "support.type.property-name.token.oui",
+          "match": "\\b(colors|spacing|radius|typography|fonts)\\.[a-zA-Z0-9_]+"
+        }
+      ]
+    }
+  }
+}

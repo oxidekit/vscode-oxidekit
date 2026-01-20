@@ -1,0 +1,202 @@
+{
+  "OxideKit App": {
+    "prefix": "app",
+    "body": [
+      "app ${1:AppName} {",
+      "    ${0}",
+      "}"
+    ],
+    "description": "Create a new OxideKit app"
+  },
+  "Column Layout": {
+    "prefix": "col",
+    "body": [
+      "Column {",
+      "    align: ${1:center}",
+      "    justify: ${2:center}",
+      "    gap: ${3:16}",
+      "",
+      "    ${0}",
+      "}"
+    ],
+    "description": "Create a Column layout"
+  },
+  "Row Layout": {
+    "prefix": "row",
+    "body": [
+      "Row {",
+      "    align: ${1:center}",
+      "    gap: ${2:16}",
+      "",
+      "    ${0}",
+      "}"
+    ],
+    "description": "Create a Row layout"
+  },
+  "Text Component": {
+    "prefix": "txt",
+    "body": [
+      "Text {",
+      "    content: \"${1:Hello}\"",
+      "    size: ${2:16}",
+      "    color: \"${3:#E5E7EB}\"",
+      "}"
+    ],
+    "description": "Create a Text component"
+  },
+  "Container with Style": {
+    "prefix": "box",
+    "body": [
+      "Container {",
+      "    style {",
+      "        background: \"${1:#1F2937}\"",
+      "        radius: ${2:8}",
+      "        padding: ${3:16}",
+      "    }",
+      "",
+      "    ${0}",
+      "}"
+    ],
+    "description": "Create a styled Container"
+  },
+  "Button": {
+    "prefix": "btn",
+    "body": [
+      "Container {",
+      "    style {",
+      "        padding: ${1:12}",
+      "        radius: ${2:8}",
+      "        background: \"${3:#3B82F6}\"",
+      "    }",
+      "",
+      "    Text {",
+      "        content: \"${4:Click me}\"",
+      "        color: \"${5:#FFFFFF}\"",
+      "    }",
+      "}"
+    ],
+    "description": "Create a button component"
+  },
+  "Image": {
+    "prefix": "img",
+    "body": [
+      "Image {",
+      "    src: \"${1:path/to/image}\"",
+      "    alt: \"${2:Description}\"",
+      "    width: ${3:200}",
+      "    height: ${4:200}",
+      "}"
+    ],
+    "description": "Create an Image component"
+  },
+  "Style Block": {
+    "prefix": "style",
+    "body": [
+      "style {",
+      "    background: \"${1:#1F2937}\"",
+      "    radius: ${2:8}",
+      "    padding: ${3:16}",
+      "}"
+    ],
+    "description": "Add a style block"
+  },
+  "Translation Function": {
+    "prefix": "t",
+    "body": [
+      "t(\"${1:key}\")"
+    ],
+    "description": "Translation function call"
+  },
+  "Centered Content": {
+    "prefix": "center",
+    "body": [
+      "Column {",
+      "    align: center",
+      "    justify: center",
+      "    width: fill",
+      "    height: fill",
+      "",
+      "    ${0}",
+      "}"
+    ],
+    "description": "Create centered content"
+  },
+  "Card Component": {
+    "prefix": "card",
+    "body": [
+      "Container {",
+      "    style {",
+      "        background: \"${1:#1F2937}\"",
+      "        radius: ${2:12}",
+      "        padding: ${3:24}",
+      "        border: 1",
+      "        border_color: \"${4:#374151}\"",
+      "    }",
+      "",
+      "    Column {",
+      "        gap: 16",
+      "",
+      "        Text {",
+      "            content: \"${5:Card Title}\"",
+      "            size: 24",
+      "            color: \"#E5E7EB\"",
+      "        }",
+      "",
+      "        Text {",
+      "            content: \"${6:Card content goes here}\"",
+      "            size: 14",
+      "            color: \"#9CA3AF\"",
+      "        }",
+      "",
+      "        ${0}",
+      "    }",
+      "}"
+    ],
+    "description": "Create a card component"
+  },
+  "Grid Layout": {
+    "prefix": "grid",
+    "body": [
+      "Grid {",
+      "    columns: ${1:2}",
+      "    gap: ${2:16}",
+      "",
+      "    ${0}",
+      "}"
+    ],
+    "description": "Create a Grid layout"
+  },
+  "Scroll Container": {
+    "prefix": "scroll",
+    "body": [
+      "Scroll {",
+      "    direction: ${1|vertical,horizontal,both|}",
+      "    height: ${2:400}",
+      "",
+      "    ${0}",
+      "}"
+    ],
+    "description": "Create a scrollable container"
+  },
+  "Input Field": {
+    "prefix": "input",
+    "body": [
+      "Input {",
+      "    placeholder: \"${1:Enter text...}\"",
+      "    type: ${2|text,password,email,number|}",
+      "}"
+    ],
+    "description": "Create an input field"
+  },
+  "Stack Layout": {
+    "prefix": "stack",
+    "body": [
+      "Stack {",
+      "    align: center",
+      "",
+      "    ${0}",
+      "}"
+    ],
+    "description": "Create a Stack (z-axis) layout"
+  }
+}

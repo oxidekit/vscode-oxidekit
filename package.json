@@ -1,0 +1,250 @@
+{
+  "name": "oxidekit",
+  "displayName": "OxideKit",
+  "description": "VS Code extension for OxideKit - A Rust-native application platform",
+  "version": "0.1.0",
+  "publisher": "oxidekit",
+  "license": "Apache-2.0",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/oxidekit/vscode-oxidekit"
+  },
+  "homepage": "https://oxidekit.com",
+  "bugs": {
+    "url": "https://github.com/oxidekit/vscode-oxidekit/issues"
+  },
+  "engines": {
+    "vscode": "^1.85.0"
+  },
+  "categories": [
+    "Programming Languages",
+    "Linters",
+    "Formatters",
+    "Snippets"
+  ],
+  "keywords": [
+    "oxidekit",
+    "rust",
+    "desktop",
+    "cross-platform",
+    "ui"
+  ],
+  "activationEvents": [
+    "workspaceContains:oxide.toml",
+    "onLanguage:oui"
+  ],
+  "main": "./out/extension.js",
+  "contributes": {
+    "languages": [
+      {
+        "id": "oui",
+        "aliases": ["OxideKit UI", "OUI"],
+        "extensions": [".oui"],
+        "configuration": "./language-configuration.json"
+      }
+    ],
+    "grammars": [
+      {
+        "language": "oui",
+        "scopeName": "source.oui",
+        "path": "./syntaxes/oui.tmLanguage.json"
+      }
+    ],
+    "configuration": {
+      "title": "OxideKit",
+      "properties": {
+        "oxidekit.lsp.path": {
+          "type": "string",
+          "default": "",
+          "description": "Path to oxide-lsp binary. Leave empty to use bundled or project-local version."
+        },
+        "oxidekit.lsp.trace.server": {
+          "type": "string",
+          "enum": ["off", "messages", "verbose"],
+          "default": "off",
+          "description": "Trace communication between VS Code and the language server."
+        },
+        "oxidekit.preview.enabled": {
+          "type": "boolean",
+          "default": true,
+          "description": "Enable live preview panel."
+        },
+        "oxidekit.comServer.autoStart": {
+          "type": "boolean",
+          "default": false,
+          "description": "Automatically start dev server when opening an OxideKit project."
+        },
+        "oxidekit.diagnostics.deprecated": {
+          "type": "boolean",
+          "default": true,
+          "description": "Show warnings for deprecated APIs."
+        },
+        "oxidekit.diagnostics.unusedImports": {
+          "type": "boolean",
+          "default": true,
+          "description": "Show warnings for unused imports."
+        }
+      }
+    },
+    "commands": [
+      {
+        "command": "oxidekit.startDevServer",
+        "title": "OxideKit: Start Dev Server",
+        "icon": "$(play)"
+      },
+      {
+        "command": "oxidekit.stopDevServer",
+        "title": "OxideKit: Stop Dev Server",
+        "icon": "$(debug-stop)"
+      },
+      {
+        "command": "oxidekit.buildDesktop",
+        "title": "OxideKit: Build Desktop App",
+        "icon": "$(package)"
+      },
+      {
+        "command": "oxidekit.buildStatic",
+        "title": "OxideKit: Build Static Site",
+        "icon": "$(globe)"
+      },
+      {
+        "command": "oxidekit.validateProject",
+        "title": "OxideKit: Validate Project",
+        "icon": "$(check)"
+      },
+      {
+        "command": "oxidekit.addPlugin",
+        "title": "OxideKit: Add Plugin",
+        "icon": "$(add)"
+      },
+      {
+        "command": "oxidekit.newPlugin",
+        "title": "OxideKit: New Plugin",
+        "icon": "$(new-file)"
+      },
+      {
+        "command": "oxidekit.i18nCheck",
+        "title": "OxideKit: i18n Check",
+        "icon": "$(globe)"
+      },
+      {
+        "command": "oxidekit.figmaImport",
+        "title": "OxideKit: Import from Figma",
+        "icon": "$(cloud-download)"
+      },
+      {
+        "command": "oxidekit.restartLsp",
+        "title": "OxideKit: Restart Language Server",
+        "icon": "$(refresh)"
+      },
+      {
+        "command": "oxidekit.showPreview",
+        "title": "OxideKit: Show Preview Panel",
+        "icon": "$(preview)"
+      },
+      {
+        "command": "oxidekit.showTokenExplorer",
+        "title": "OxideKit: Show Token Explorer",
+        "icon": "$(symbol-color)"
+      },
+      {
+        "command": "oxidekit.createComponent",
+        "title": "OxideKit: Create Component"
+      },
+      {
+        "command": "oxidekit.extractComponent",
+        "title": "OxideKit: Extract to Component"
+      },
+      {
+        "command": "oxidekit.wrapWithContainer",
+        "title": "OxideKit: Wrap with Container"
+      },
+      {
+        "command": "oxidekit.wrapWithColumn",
+        "title": "OxideKit: Wrap with Column"
+      },
+      {
+        "command": "oxidekit.wrapWithRow",
+        "title": "OxideKit: Wrap with Row"
+      },
+      {
+        "command": "oxidekit.showMigrationGuide",
+        "title": "OxideKit: Show Migration Guide"
+      }
+    ],
+    "menus": {
+      "editor/context": [
+        {
+          "command": "oxidekit.extractComponent",
+          "when": "editorLangId == oui",
+          "group": "1_modification"
+        },
+        {
+          "command": "oxidekit.wrapWithContainer",
+          "when": "editorLangId == oui",
+          "group": "1_modification"
+        }
+      ],
+      "editor/title": [
+        {
+          "command": "oxidekit.showPreview",
+          "when": "editorLangId == oui",
+          "group": "navigation"
+        }
+      ]
+    },
+    "viewsContainers": {
+      "activitybar": [
+        {
+          "id": "oxidekit-explorer",
+          "title": "OxideKit",
+          "icon": "resources/oxidekit-icon.svg"
+        }
+      ]
+    },
+    "views": {
+      "oxidekit-explorer": [
+        {
+          "id": "oxidekit-components",
+          "name": "Components"
+        },
+        {
+          "id": "oxidekit-tokens",
+          "name": "Design Tokens"
+        },
+        {
+          "id": "oxidekit-i18n",
+          "name": "Translations"
+        }
+      ]
+    },
+    "snippets": [
+      {
+        "language": "oui",
+        "path": "./snippets/oui.json"
+      }
+    ]
+  },
+  "scripts": {
+    "vscode:prepublish": "npm run compile",
+    "compile": "tsc -p ./",
+    "watch": "tsc -watch -p ./",
+    "lint": "eslint src --ext ts",
+    "test": "node ./out/test/runTest.js",
+    "package": "vsce package",
+    "publish": "vsce publish"
+  },
+  "devDependencies": {
+    "@types/node": "^20.10.0",
+    "@types/vscode": "^1.85.0",
+    "@typescript-eslint/eslint-plugin": "^6.13.0",
+    "@typescript-eslint/parser": "^6.13.0",
+    "@vscode/test-electron": "^2.3.8",
+    "@vscode/vsce": "^2.22.0",
+    "eslint": "^8.54.0",
+    "typescript": "^5.3.0"
+  },
+  "dependencies": {
+    "vscode-languageclient": "^9.0.1"
+  }
+}
